@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebProjesi.Models.Film>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-3  ">
+            <input type="submit" value="Filmler Listesi" class="btn buton btn-dark" disabled />
+
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Film" asp-action="Create" class="btn btn-dark ">Yeni Film Ekle</a>
+        </div>
+    </div>
+    <br />
+    @*@if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Film Adı
+                    </th>
+                    <th>
+                        Film Kategorisi
+                    </th>
+                    <th>
+                        Film Aciklamasi
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td width="30%">@i.filmIsmi</td>
+                        <td width="30%">@i.filmTuru</td>
+                        <td width="30%">@i.filmAciklamasi</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    }*@
+
+<div class="card-group">
+    @foreach (var i in Model)
+    {
+    <div class="col-sm-4">
+        <div class="card">
+            <img src="https://www.arthipo.com/image/cache/catalog/poster/movie/1-758/pfilm117-the-amazing-spider-man-orumcek-adam-posteri-500x500w.jpg" class="card-img-top kartresim" alt="...">
+            <div class="card-body ">
+                <h3 class="card-title text-light">@i.filmIsmi</h3>
+                <p class="card-text text-light">@i.filmAciklamasi</p>
+                <a asp-controller="Film" asp-action="Update" asp-route-Id="@i.Id" class="btn buton bg-dark text-white btn-dark">Edit</a>
+                <a asp-controller="Film" asp-action="Delete" asp-route-Id="@i.Id" class="btn btn-dark text-white">Delete</a>
+            </div>
+        </div>
+    </div>
+     <br />   
+    }
+</div>
+    
+
+</div>

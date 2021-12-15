@@ -1,0 +1,56 @@
+﻿@model WebProjesi.Models.Film
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form method="post" asp-action="Update">
+
+    <h1 class="text-light text-center bg-dark">Filmi Düzenle</h1>
+    <input asp-for="Id" hidden />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th class="text-center bg-light">
+                    Film Adı
+                </th>
+                <th class="text-center bg-light">
+                    Film Kategorisi
+                </th>
+                <th class="text-center bg-light">
+                    Film Aciklamasi
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input asp-for="filmIsmi" width="100" type="text" id="isim" class="form-control" />
+                    <span asp-validation-for="filmIsmi" class="text-danger"></span>
+                </td>
+                <td>
+                    <input asp-for="filmTuru" width="100" type="text" id="isim" class="form-control" />
+                    <span asp-validation-for="filmTuru" class="text-danger"></span>
+                </td>
+                <td>
+                    <input asp-for="filmAciklamasi" width="100" type="text" id="isim" class="form-control" />
+                    <span asp-validation-for="filmAciklamasi" class="text-danger"></span>
+                </td>
+            </tr>
+        </tbody>
+
+
+
+    </table>
+
+    <div class="offset-4">
+
+        <input type="submit" class="btn btn-info  w-25" value="Düzenle" />
+        <a asp-action="Index" class="btn btn-danger  w-25">Geri Git</a>
+
+    </div>
+
+</form>
+
+
