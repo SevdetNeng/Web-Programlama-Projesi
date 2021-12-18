@@ -102,5 +102,16 @@ namespace WebProjesi.Controllers
 
             return View(obj);
         }
+
+        public IActionResult Details(int? id)
+        {
+            
+            if(id==0 || id == null)
+            {
+                return NotFound();
+            }
+            var obj = _db.Filmler.Find(id);
+            return View(obj);
+        }
     }
 }

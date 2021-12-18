@@ -6,10 +6,8 @@
 }
 
 
-<form method="post" asp-action="Create">
-
-    <h1 class="text-light text-center bg-dark">Film Ekle</h1>
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <h1 class="text-light text-center bg-dark">Film Detayları</h1>
+    <input asp-for="Id" hidden />
 
     <table class="table table-bordered table-striped" style="width:100%">
         <thead>
@@ -28,16 +26,16 @@
         <tbody>
             <tr>
                 <td>
-                    <input asp-for="filmIsmi" width="100" type="text" id="isim" class="form-control" />
-                    <span asp-validation-for="filmIsmi" class="text-danger"></span>
+                    <input asp-for="filmIsmi" disabled width="100" type="text" id="isim" class="form-control" />
+                    
                 </td>
                 <td>
-                    <input asp-for="filmTuru" width="100" type="text" id="isim" class="form-control" />
-                    <span asp-validation-for="filmTuru" class="text-danger"></span>
+                    <input asp-for="filmTuru" disabled width="100" type="text" id="isim" class="form-control" />
+                    
                 </td>
                 <td>
-                    <input asp-for="filmAciklamasi" width="100" type="text" id="isim" class="form-control" />
-                    <span asp-validation-for="filmAciklamasi" class="text-danger"></span>
+                    <input asp-for="filmAciklamasi" disabled width="100" type="text" id="isim" class="form-control" />
+                    
                 </td>
             </tr>
         </tbody>
@@ -48,11 +46,11 @@
 
     <div class="offset-4">
 
-        <input type="submit" class="btn btn-info  w-25" value="Ekle" />
+        
         <a asp-action="Index" class="btn btn-danger  w-25">Geri Git</a>
 
     </div>
 
-</form>
+
 
 

@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebProjesi.Data;
 
 namespace WebProjesi.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211215194636_KullaniciEkleme")]
+    partial class KullaniciEkleme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,27 +45,6 @@ namespace WebProjesi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Filmler");
-                });
-
-            modelBuilder.Entity("WebProjesi.Models.Kullanicilar", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("kullaniciAdi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("rol")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("sifre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Kullanicilar");
                 });
 #pragma warning restore 612, 618
         }

@@ -145,3 +145,5 @@ C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\WebProjesi.g
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Create.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Delete.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Update.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Details.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Kayit\SignUp.cshtml.g.cs

@@ -25,9 +25,12 @@ namespace WebProjesi
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddDistributedMemoryCache();
 			services.AddControllersWithViews();
+			services.AddSession();
+			services.AddMvc();
 
-            services.AddDbContext<ApplicationDBContext>(options=>
+			services.AddDbContext<ApplicationDBContext>(options=>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
 
@@ -48,11 +51,14 @@ namespace WebProjesi
 			}
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
-
+			
 			app.UseRouting();
+			
 
 			app.UseAuthorization();
-
+			
+			app.UseSession();
+			
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllerRoute(
