@@ -2,31 +2,67 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebProjesi.Data;
 using WebProjesi.Models;
 
 namespace WebProjesi.Controllers
-{
+{   
+    
     public class FilmController : Controller
     {
 
         private readonly ApplicationDBContext _db;
 
+        
         public FilmController(ApplicationDBContext db)
         {
             _db = db;
-        }   
+        }
+        
+        [Authorize(Roles ="Admin")]
         public IActionResult Index()
         {
 
             IEnumerable<Film> objList = _db.Filmler;
 			return View(objList);
-
+            
 			
         }
 
-		public IActionResult Create()
+        public IActionResult kullaniciFilmler()
+        {
+            IEnumerable<Film> objList = _db.Filmler;
+            return View(objList);
+        }
+
+        public IActionResult FilmYorum()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult FilmYorum(FilmYorum obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.FilmYorumlar.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+
+        }
+        
+        public IActionResult Giris()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Create()
         {
             return View();
         }
@@ -45,6 +81,7 @@ namespace WebProjesi.Controllers
             return View(obj);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int? id)
         {
             if (id == 0 || id == null)
@@ -73,6 +110,7 @@ namespace WebProjesi.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Update(int? id)
         {
             if (id == 0 || id == null)
@@ -105,13 +143,18 @@ namespace WebProjesi.Controllers
 
         public IActionResult Details(int? id)
         {
+            IEnumerable<FilmYorum> yorumList = _db.FilmYorumlar;
+
             
-            if(id==0 || id == null)
+            if (id==0 || id == null)
             {
                 return NotFound();
             }
             var obj = _db.Filmler.Find(id);
-            return View(obj);
+            DetayveYorum detay = new DetayveYorum();
+            detay.FilmYorumlar = yorumList;
+            detay.film = obj;
+            return View(detay);
         }
     }
 }

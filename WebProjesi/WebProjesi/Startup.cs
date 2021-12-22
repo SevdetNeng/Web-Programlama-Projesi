@@ -2,13 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using WebProjesi.Areas.Identity.Data;
 using WebProjesi.Data;
 
 namespace WebProjesi
@@ -25,20 +29,27 @@ namespace WebProjesi
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			
 			services.AddDistributedMemoryCache();
 			services.AddControllersWithViews();
-			services.AddSession();
+			
 			services.AddMvc();
+
+			services.AddAuthentication();
+			services.AddAuthorization();
+			
 
 			services.AddDbContext<ApplicationDBContext>(options=>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
+			
 
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+			
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
@@ -53,17 +64,19 @@ namespace WebProjesi
 			app.UseStaticFiles();
 			
 			app.UseRouting();
-			
 
+			app.UseAuthentication();
 			app.UseAuthorization();
 			
-			app.UseSession();
+			
+			
 			
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
 					pattern: "{controller=Film}/{action=Index}/{id?}");
+				endpoints.MapRazorPages();
 			});
 		}
 	}

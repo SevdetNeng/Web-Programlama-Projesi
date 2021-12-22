@@ -1,4 +1,4 @@
-﻿@model WebProjesi.Models.Film
+﻿@model WebProjesi.Models.DetayveYorum
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -7,8 +7,8 @@
 
 
     <h1 class="text-light text-center bg-dark">Film Detayları</h1>
-    <input asp-for="Id" hidden />
-
+    <input asp-for="film.Id" hidden />
+    
     <table class="table table-bordered table-striped" style="width:100%">
         <thead>
             <tr>
@@ -26,16 +26,16 @@
         <tbody>
             <tr>
                 <td>
-                    <input asp-for="filmIsmi" disabled width="100" type="text" id="isim" class="form-control" />
+                    <input asp-for="film.filmIsmi" disabled width="100" type="text" id="isim" class="form-control" />
                     
                 </td>
                 <td>
-                    <input asp-for="filmTuru" disabled width="100" type="text" id="isim" class="form-control" />
+                    <input asp-for="film.filmTuru" disabled width="100" type="text" id="isim" class="form-control" />
                     
                 </td>
                 <td>
-                    <input asp-for="filmAciklamasi" disabled width="100" type="text" id="isim" class="form-control" />
-                    
+                    <input asp-for="film.filmAciklamasi" disabled width="100" type="text" id="isim" class="form-control" />
+                    @ViewData["FilmNumara"]=film.Id;
                 </td>
             </tr>
         </tbody>
@@ -44,10 +44,14 @@
 
     </table>
 
+
+
     <div class="offset-4">
 
-        
+
         <a asp-action="Index" class="btn btn-danger  w-25">Geri Git</a>
+        <a asp-route-Id="@Model.film.Id" asp-action="FilmYorum" class="btn btn-success  w-25">Yorum Yap</a>
+        @Html.ActionLink(Model.film.filmIsmi, "filmyorum", "film", new { id = Model.film.Id }, new { @class = "btn btn-primary btn-block" })
 
     </div>
 

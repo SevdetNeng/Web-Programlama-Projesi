@@ -28,16 +28,12 @@
             
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse justify-content-end">
                 <ul class="item nav navbar-nav flex-grow-1 navbar-right">
-                    <li class="nav-item ">
-                        <a class="nav-link text-light  justify-content-end" asp-area="" asp-controller="Home" asp-action="Index">Giriş Yap</a>
-                    </li>
-                    <li>
-                        
-                    </li>
-                    <li class="nav-item">
-                        
-                        <a class="nav-link text-light item" asp-area="" asp-controller="Kayit" asp-action="SignUp">Üye Ol</a>
-                    </li>
+                    <partial>
+                        @Html.Partial("_LoginPartial.cshtml")
+                    </partial>
+                       
+                    
+                    
                 </ul>
             </div>
         </div>
@@ -47,12 +43,12 @@
 
     <div id="mySidebar" class="sidebar ">
         <br />
-        <a asp-area="" asp-controller="Film" asp-action="Index"><h3>Good2Watch</h3></a>
+        <a asp-area="" asp-controller="Film" asp-action="Giris"><h3>Good2Watch</h3></a>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <br />
-        <a href="#">Giriş</a>
+        <a asp-action="giris" asp-controller="Film">Giriş</a>
         <br /> 
-        <a asp-action="Index" asp-controller="Film">Filmler</a>
+        <a asp-action="kullaniciFilmler" asp-controller="Film">Filmler</a>
         <br />
         <a href="#">Kitaplar</a>
         <br />
