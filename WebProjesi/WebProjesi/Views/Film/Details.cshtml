@@ -5,55 +5,150 @@
 @{
 }
 
-
-    <h1 class="text-light text-center bg-dark">Film Detayları</h1>
-    <input asp-for="film.Id" hidden />
+<div class="col-3  ">
     
-    <table class="table table-bordered table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th class="text-center bg-light">
-                    Film Adı
-                </th>
-                <th class="text-center bg-light">
-                    Film Kategorisi
-                </th>
-                <th class="text-center bg-light">
-                    Film Aciklamasi
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <input asp-for="film.filmIsmi" disabled width="100" type="text" id="isim" class="form-control" />
-                    
-                </td>
-                <td>
-                    <input asp-for="film.filmTuru" disabled width="100" type="text" id="isim" class="form-control" />
-                    
-                </td>
-                <td>
-                    <input asp-for="film.filmAciklamasi" disabled width="100" type="text" id="isim" class="form-control" />
-                    @ViewData["FilmNumara"]=film.Id;
-                </td>
-            </tr>
-        </tbody>
+    <h4 class="bg-dark text-center pb-2 rounded pl-2 pr-2 pt-2 text-white">Film Detayları</h4>
+    
+</div>
+<br />
+
+<input asp-for="film.Id" hidden />
 
 
 
-    </table>
+
+<div>
+    <div class="row">
+
+
+        <div class="col card text-white">
+            <div class="card-body">
+                <div class="row no-gutters">
+                    <div class="col-sm-4">
+                        <img src="https://www.arthipo.com/image/cache/catalog/poster/movie/1-758/pfilm117-the-amazing-spider-man-orumcek-adam-posteri-500x500w.jpg" class="card-img kartresim" alt="...">
+                    </div>
+                    <div class="col">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">@Model.film.filmIsmi</h2>
+                            <h3 class="card-title text-center"> @Model.film.filmTuru</h3>
+                            <br />
+                            <h4 class="card-text pl-4 pr-4">@Model.film.filmAciklamasi</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
-    <div class="offset-4">
-
-
-        <a asp-action="Index" class="btn btn-danger  w-25">Geri Git</a>
-        <a asp-route-Id="@Model.film.Id" asp-action="FilmYorum" class="btn btn-success  w-25">Yorum Yap</a>
-        @Html.ActionLink(Model.film.filmIsmi, "filmyorum", "film", new { id = Model.film.Id }, new { @class = "btn btn-primary btn-block" })
+        </div>
 
     </div>
+</div>
+<br />
+
+<div class=" text-white">
+    <h1 class="text-light text-center pb-3 pt-3 bg-dark">Filme Yapılan Yorumlar</h1>
+
+    @if (Model.FilmYorumlar.Count() != 0)
+    {
+
+
+
+
+
+        @foreach (var i in Model.FilmYorumlar)
+        {
+
+
+            <div class="card card-yorum text-white p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="user d-flex flex-row align-items-center">
+                        <img src="https://i.pinimg.com/736x/75/34/53/753453e3247505c8880956ef39691960.jpg" width="30" class="user-img rounded-circle mr-2">
+                        <span>
+                            <small class="font-weight-bold  text-primary">@i.Kullanici</small>
+                            <br />
+                            <a>@i.yorumBaslik</a>
+                            <br />
+                            <small class="font-weight-bold">@i.Yorum</small>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+        }
+
+
+
+
+
+    }
+</div>
+
+
+
+
+
+
+<
+@if (User.IsInRole("Kullanici") || User.IsInRole("Admin"))
+{
+    <form method="post" asp-controller="film" asp-action="Details">
+
+        <h1 class="text-light text-center bg-dark">Film Ekle</h1>
+
+
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="text-center bg-light">
+                        Yorum Yapın
+                    </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <textarea asp-for="yorum.Yorum" name="yorum" class="form-control" required></textarea>
+                        <textarea asp-for="yorum.yorumBaslik" name="yorumBaslik" class="form-control" required></textarea>
+                        <select asp-for="yorum.puan" name="yorumPuan" class="custom-select" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+
+
+
+        </table>
+
+        <div class="offset-4">
+
+            <input type="submit" class="btn btn-info  w-25" value="Ekle" />
+            <a asp-action="Index" class="btn btn-danger  w-25">Geri Git</a>
+
+        </div>
+
+    </form>
+}
+
 
 
 

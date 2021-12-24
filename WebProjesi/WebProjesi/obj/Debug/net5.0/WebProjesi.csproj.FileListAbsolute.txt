@@ -170,5 +170,5 @@ C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_YetkilendirmeLayout.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\kullaniciFilmler.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Giris.cshtml.g.cs
-C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\FilmYorum.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\FilmYorum.cshtml.g.cs

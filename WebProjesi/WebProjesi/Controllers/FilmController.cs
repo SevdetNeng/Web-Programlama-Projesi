@@ -44,11 +44,11 @@ namespace WebProjesi.Controllers
         }
 
         [HttpPost]
-        public IActionResult FilmYorum(FilmYorum obj)
+        public IActionResult FilmYorum(FilmYorumlar obj)
         {
             if (ModelState.IsValid)
             {
-                _db.FilmYorumlar.Add(obj);
+                _db.FilmYorumlari.Add(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -137,13 +137,13 @@ namespace WebProjesi.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            
             return View(obj);
         }
 
         public IActionResult Details(int? id)
         {
-            IEnumerable<FilmYorum> yorumList = _db.FilmYorumlar;
+            IEnumerable<FilmYorumlar> yorumList = _db.FilmYorumlari;
 
             
             if (id==0 || id == null)
@@ -152,7 +152,47 @@ namespace WebProjesi.Controllers
             }
             var obj = _db.Filmler.Find(id);
             DetayveYorum detay = new DetayveYorum();
-            detay.FilmYorumlar = yorumList;
+            detay.FilmYorumlar = yorumList.Where(i => i.FilmNumara == id);
+            detay.film = obj;
+            
+            return View(detay);
+        }
+
+        [HttpPost]
+        public IActionResult Details(int id,FilmYorumlar postYorum)
+        {
+            
+            postYorum.FilmNumara = id;
+            postYorum.Kullanici = User.Identity.Name;
+            postYorum.Id = 0;
+
+
+
+             
+            
+                _db.FilmYorumlari.Add(postYorum);
+                _db.SaveChanges();
+                if (User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("index", "film");
+                }
+                else
+                {
+                    return RedirectToAction("kullanicifilmler", "film");
+                }
+            
+
+
+            IEnumerable<FilmYorumlar> yorumList = _db.FilmYorumlari;
+
+            if (id == 0 || id == null)
+            {
+                return NotFound();
+            }
+            var obj = _db.Filmler.Find(id);
+            DetayveYorum detay = new DetayveYorum();
+             
+            detay.FilmYorumlar = yorumList.Where(i => i.FilmNumara == id);
             detay.film = obj;
             return View(detay);
         }

@@ -7,7 +7,9 @@ namespace WebProjesi.Models
 {
     public class DetayveYorum
     {
-        public IEnumerable<FilmYorum> FilmYorumlar;
-        public Film film;
+        public IEnumerable<FilmYorumlar> FilmYorumlar { get; set; }
+        public Film film { get; set; }
+        public FilmYorumlar yorum { get; set; }
+        public IEnumerable<Film> Filmler { get; set; }
     }
 }

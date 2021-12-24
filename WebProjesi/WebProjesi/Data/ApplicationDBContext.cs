@@ -16,7 +16,9 @@ namespace WebProjesi.Data
 
         public DbSet<Film> Filmler { get; set; }
         public DbSet<Kullanicilar> Kullanicilar { get; set; }
-        public DbSet<FilmYorum> FilmYorumlar { get; set; }
+        
+
+        public DbSet<FilmYorumlar> FilmYorumlari { get; set; }
         
     }
 }

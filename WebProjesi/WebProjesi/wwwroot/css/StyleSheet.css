@@ -1,7 +1,9 @@
 ﻿
 
 
-
+.card-yorum {
+    background-color: white;
+}
 
 a.item{
     justify-content:end;
@@ -142,7 +144,7 @@ body {
 
 .card {
     margin-bottom: 25px;
-    background-color: #2a3248;
+    background-color: #2a3249;
     box-shadow: rgb(0, 0, 0, 0.75) 12px 12px;
     min-width:15rem;
 }
@@ -150,6 +152,7 @@ body {
 .kartresim {
     height: 25rem !important;
     object-fit: fill;
+    margin: 10px 10px 10px 10px; 
 }
  
 

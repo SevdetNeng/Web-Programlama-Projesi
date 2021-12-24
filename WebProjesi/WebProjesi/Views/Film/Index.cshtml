@@ -22,18 +22,23 @@
 <div class="card-group">
     @foreach (var i in Model)
     {
-    <div class="col-sm-4">
+    <div class="col-4 ">
         <div class="card">
             <img src="https://www.arthipo.com/image/cache/catalog/poster/movie/1-758/pfilm117-the-amazing-spider-man-orumcek-adam-posteri-500x500w.jpg" class="card-img-top kartresim" alt="...">
-            <div class="card-body ">
-                <a asp-action="Details" asp-controller="film" asp-route-Id="@i.Id" class="card-title text-light">@i.filmIsmi</a>
-                <p class="card-text text-light">@i.filmAciklamasi</p>
-                <a asp-controller="Film" asp-action="Update" asp-route-Id="@i.Id" class="btn buton bg-dark text-white btn-dark">Edit</a>
-                <a asp-controller="Film" asp-action="Delete" asp-route-Id="@i.Id" class="btn btn-dark text-white">Delete</a>
+            <div class="card-body  ">
+                <a asp-action="Details" asp-controller="film" asp-route-Id="@i.Id" class="card-title text-light">-&gt; @i.filmIsmi &lt;-</a>
+                <p class="card-text overflow-hidden text-light">@i.filmAciklamasi</p>
+                <br />
+                <div>
+                    <a asp-controller="Film" asp-action="Update" asp-route-Id="@i.Id" class="btn buton  bg-dark text-white btn-dark">Edit</a>
+
+                    <a asp-controller="Film" asp-action="Delete" asp-route-Id="@i.Id" class="btn btn-dark  text-white">Delete</a>
+                </div>
+                
             </div>
         </div>
     </div>
-     <br />   
+     
     }
 </div>
     
