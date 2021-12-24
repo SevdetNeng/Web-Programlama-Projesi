@@ -17,13 +17,13 @@ namespace WebProjesi.Models
         [Required]
         public string Kullanici { get; set; }
         [Required]
-        [MaxLength(200)]
+        [MaxLength(150,ErrorMessage ="Yorum 150 karakterden uzun olamaz.")]
         public string Yorum { get; set; }
         [Required]
         public int FilmNumara { get; set; }
         [Required]
         
-        public int puan { get; set; }
+        public string puan { get; set; }
         [Required]
         public string yorumBaslik { get; set; }
 

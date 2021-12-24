@@ -165,6 +165,7 @@ namespace WebProjesi.Controllers
             postYorum.FilmNumara = id;
             postYorum.Kullanici = User.Identity.Name;
             postYorum.Id = 0;
+            postYorum.puan = "0";
 
 
 
@@ -196,5 +197,87 @@ namespace WebProjesi.Controllers
             detay.film = obj;
             return View(detay);
         }
+
+        public IActionResult KatalogEkle(int? id)
+        {
+
+            var obj = _db.Filmler.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        [HttpPost]
+        public IActionResult KatalogEkle(int id)
+        {
+            var obj = _db.Filmler.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            var katalog = new Kataloglar();
+            katalog.filmNumara = id;
+            katalog.kullaniciAdi = User.Identity.Name;
+
+            _db.KullaniciKataloglar.Add(katalog);
+            _db.SaveChanges();
+            return RedirectToAction("kullanicifilmler", "film");
+
+        }
+
+        public IActionResult Katalogum()
+        {
+            KatalogveFilm birlesim = new KatalogveFilm();
+            IEnumerable<Kataloglar> katalog = _db.KullaniciKataloglar;
+            
+            birlesim.kataloglar = katalog.Where(x => x.kullaniciAdi == User.Identity.Name);            
+            birlesim.filmler = _db.Filmler;
+            return View(birlesim);
+        }
+
+        public IActionResult KatalogSil(int? id)
+        {
+            var obj = _db.Filmler.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        [HttpPost]
+        public IActionResult KatalogSil(int id)
+        {
+            var katalog = new Kataloglar();
+            IEnumerable<Kataloglar> kataloglar = _db.KullaniciKataloglar;
+            var katalogid = kataloglar.Where(x => x.kullaniciAdi == User.Identity.Name && x.filmNumara == id).FirstOrDefault();
+            
+            katalog = _db.KullaniciKataloglar.Find(katalogid.Id);
+            
+            _db.KullaniciKataloglar.Remove(katalog);
+            _db.SaveChanges();
+            return RedirectToAction("katalogum", "film");
+        }
+
+        public IActionResult YorumSil(int? id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult YorumSil(int id)
+        {
+            var obj = _db.FilmYorumlari.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.FilmYorumlari.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("kullanicifilmler", "film");
+        }
+
     }
 }

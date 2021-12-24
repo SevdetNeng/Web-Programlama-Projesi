@@ -143,16 +143,16 @@ body {
 
 
 .card {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     background-color: #2a3249;
     box-shadow: rgb(0, 0, 0, 0.75) 12px 12px;
-    min-width:15rem;
+    min-width: 15rem;   
 }
 
 .kartresim {
     height: 25rem !important;
     object-fit: fill;
-    margin: 10px 10px 10px 10px; 
+    
 }
  
 

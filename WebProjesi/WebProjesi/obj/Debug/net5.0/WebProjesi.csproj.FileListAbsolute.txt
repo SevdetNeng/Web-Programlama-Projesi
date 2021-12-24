@@ -172,3 +172,7 @@ C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Giris.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\FilmYorum.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\KatalogEkle.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Katalogum.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\KatalogSil.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\YorumSil.cshtml.g.cs

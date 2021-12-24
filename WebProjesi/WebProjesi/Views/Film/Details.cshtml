@@ -5,11 +5,7 @@
 @{
 }
 
-<div class="col-3  ">
-    
-    <h4 class="bg-dark text-center pb-2 rounded pl-2 pr-2 pt-2 text-white">Film Detayları</h4>
-    
-</div>
+
 <br />
 
 <input asp-for="film.Id" hidden />
@@ -18,6 +14,11 @@
 
 
 <div>
+    <div class="align-self-center  ">
+
+        <h4 class="bg-dark w-25 text-center pb-2 rounded pl-2 pr-2 pt-2 text-white">Film Detayları</h4>
+
+    </div>
     <div class="row">
 
 
@@ -48,7 +49,10 @@
 <br />
 
 <div class=" text-white">
-    <h1 class="text-light text-center pb-3 pt-3 bg-dark">Filme Yapılan Yorumlar</h1>
+    <div class="align-self-center">
+        <h4 class="bg-dark w-25 text-center pb-2 rounded pl-2 pr-2 pt-2 text-white">Filme Yapılan Yorumlar</h4>
+    </div>
+    
 
     @if (Model.FilmYorumlar.Count() != 0)
     {
@@ -61,7 +65,7 @@
         {
 
 
-            <div class="card card-yorum text-white p-3">
+            <div class="card card-yorum text-white p-2">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="user d-flex flex-row align-items-center">
                         <img src="https://i.pinimg.com/736x/75/34/53/753453e3247505c8880956ef39691960.jpg" width="30" class="user-img rounded-circle mr-2">
@@ -71,9 +75,17 @@
                             <a>@i.yorumBaslik</a>
                             <br />
                             <small class="font-weight-bold">@i.Yorum</small>
+                            <br />
+
+
                         </span>
                     </div>
-
+                    @if (User.Identity.Name == i.Kullanici || User.IsInRole("Admin"))
+                    {
+                        <div class="align-self-end p-2">
+                            <a asp-controller="film" asp-action="YorumSil" asp-route-id="@i.Id" class="font-weight-bold  btn btn-danger">x</a>
+                        </div>
+                    }
                 </div>
 
             </div>
@@ -99,54 +111,47 @@
 <
 @if (User.IsInRole("Kullanici") || User.IsInRole("Admin"))
 {
-    <form method="post" asp-controller="film" asp-action="Details">
+<form method="post" asp-controller="film" asp-action="Details">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="align-self-center  ">
 
-        <h1 class="text-light text-center bg-dark">Film Ekle</h1>
+        <h4 class="bg-dark w-25 text-center pb-2 rounded pl-2 pr-2 pt-2 text-white">Sende Yorum Yap!</h4>
 
-
-        <table class="table table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th class="text-center bg-light">
-                        Yorum Yapın
-                    </th>
+    </div>
 
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <textarea asp-for="yorum.Yorum" name="yorum" class="form-control" required></textarea>
-                        <textarea asp-for="yorum.yorumBaslik" name="yorumBaslik" class="form-control" required></textarea>
-                        <select asp-for="yorum.puan" name="yorumPuan" class="custom-select" required>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </td>
-                </tr>
-            </tbody>
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th class="text-center bg-light">
+                    Yorum Yapın
+                </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <textarea asp-for="yorum.yorumBaslik" placeholder="Başlık" name="yorumBaslik" class="form-control" required></textarea>
+                    <textarea asp-for="yorum.Yorum" placeholder="Yorum" name="yorum" class="form-control" required></textarea>
+                    <span asp-validation-for="yorum.Yorum" class="text-danger"></span>
+                </td>
+            </tr>
+        </tbody>
 
 
 
-        </table>
+    </table>
 
-        <div class="offset-4">
+    <div class="offset-4">
 
-            <input type="submit" class="btn btn-info  w-25" value="Ekle" />
-            <a asp-action="Index" class="btn btn-danger  w-25">Geri Git</a>
+        <input type="submit" class="btn btn-success  w-25" value="Yolla" />
+        <a asp-action="Index" class="btn btn-danger  w-25">Geri Git</a>
 
-        </div>
+    </div>
 
-    </form>
+</form>
 }
 
 
