@@ -96,26 +96,31 @@ namespace WebProjesi.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     
-                    
-                    if(!await _roleManager.RoleExistsAsync("Admin")){
-                        var admin = new IdentityRole("Admin");
-                        var res = await _roleManager.CreateAsync(admin);
-                        if (res.Succeeded)
+                    if(Input.Email == "sevdet.isik@sakarya.edu.tr")
+                    {
+                        if (!await _roleManager.RoleExistsAsync("Admin"))
                         {
-                            if (Input.Email == "sevdet.isik@ogr.sakarya.edu.tr")
+                            var admin = new IdentityRole("Admin");
+                            var res = await _roleManager.CreateAsync(admin);
+                            if (res.Succeeded)
+                            {
+                                if (Input.Email == "sevdet.isik@sakarya.edu.tr")
+                                {
+                                    await _userManager.AddToRoleAsync(user, "Admin");
+                                }
+                            }
+
+                        }
+                        else if (await _roleManager.RoleExistsAsync("Admin"))
+                        {
+                            if (Input.Email == "sevdet.isik@sakarya.edu.tr")
                             {
                                 await _userManager.AddToRoleAsync(user, "Admin");
                             }
                         }
-                        
                     }
-                    else if(await _roleManager.RoleExistsAsync("Admin"))
-                    {
-                        if (Input.Email == "sevdet.isik@ogr.sakarya.edu.tr")
-                        {
-                            await _userManager.AddToRoleAsync(user, "Admin");
-                        }
-                    }
+                    
+
                     else if (!await _roleManager.RoleExistsAsync("Kullanici"))
                     {
                         var kullanici = new IdentityRole("Kullanici");
@@ -150,7 +155,7 @@ namespace WebProjesi.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        return RedirectToAction("kullanicifilmler", "film");
                     }
                 }
                 foreach (var error in result.Errors)

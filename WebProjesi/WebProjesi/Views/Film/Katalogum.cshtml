@@ -12,8 +12,8 @@
 
 <div class="container p-3">
     <div class="row pt-4">
-        <div class="col-3  ">
-            <input type="submit" value="Kataloğumdaki Filmler" class="btn buton btn-dark" disabled />
+        <div class="col-4 pl-4">
+            <h4 class="bg-dark w-75 text-center pb-2 rounded pl-2 pr-2 pt-2 text-white">Film Listesi</h4>
 
         </div>
         <div class="col-6 text-right">
@@ -33,10 +33,11 @@
                 if (i.filmNumara == y.Id)
                 {
                     <div class="col-sm-4">
-                        <div class="card">
-                            <img src="https://www.arthipo.com/image/cache/catalog/poster/movie/1-758/pfilm117-the-amazing-spider-man-orumcek-adam-posteri-500x500w.jpg" class="kartresim card-img " alt="...">
+                        <div class="card cardFilm">
+                            <img src="@y.filmResimURL" class="kartresim card-img " alt="...">
                             <div class="card-body ">
-                                <a asp-action="Details" asp-controller="film" asp-route-Id="@y.Id" class="card-title text-light">@y.filmIsmi</a>
+                                <a asp-action="Details" asp-controller="film" asp-route-Id="@y.Id" class="card-title font-weight-bolder text-primary ">@y.filmIsmi</a>
+                                <hr />
                                 <p class="card-text text-light">@y.filmAciklamasi</p>
 
                             </div>

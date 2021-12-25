@@ -146,7 +146,12 @@ body {
     margin-bottom: 20px;
     background-color: #2a3249;
     box-shadow: rgb(0, 0, 0, 0.75) 12px 12px;
-    min-width: 15rem;   
+    
+}
+.cardFilm {
+    min-width: 8rem;
+    height: 38rem;
+    text-overflow: ellipsis;
 }
 
 .kartresim {

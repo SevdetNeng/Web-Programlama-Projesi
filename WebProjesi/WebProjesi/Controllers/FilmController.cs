@@ -105,6 +105,8 @@ namespace WebProjesi.Controllers
             {
                 return NotFound();
             }
+            _db.KullaniciKataloglar.RemoveRange(_db.KullaniciKataloglar.Where(x => x.filmNumara == id));
+            _db.FilmYorumlari.RemoveRange(_db.FilmYorumlari.Where(x => x.FilmNumara == id));
             _db.Filmler.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
@@ -184,18 +186,13 @@ namespace WebProjesi.Controllers
             
 
 
-            IEnumerable<FilmYorumlar> yorumList = _db.FilmYorumlari;
+           
 
             if (id == 0 || id == null)
             {
                 return NotFound();
             }
-            var obj = _db.Filmler.Find(id);
-            DetayveYorum detay = new DetayveYorum();
-             
-            detay.FilmYorumlar = yorumList.Where(i => i.FilmNumara == id);
-            detay.film = obj;
-            return View(detay);
+           
         }
 
         public IActionResult KatalogEkle(int? id)
@@ -277,6 +274,34 @@ namespace WebProjesi.Controllers
             _db.FilmYorumlari.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("kullanicifilmler", "film");
+        }
+
+        public IActionResult filmAksiyon()
+        {
+
+            IEnumerable<Film> filmler = _db.Filmler;
+            return View(filmler);
+        }
+
+        public IActionResult filmMacera()
+        {
+
+            IEnumerable<Film> filmler = _db.Filmler;
+            return View(filmler);
+        }
+
+        public IActionResult filmBKurgu()
+        {
+
+            IEnumerable<Film> filmler = _db.Filmler;
+            return View(filmler);
+        }
+
+        public IActionResult filmRomantik()
+        {
+
+            IEnumerable<Film> filmler = _db.Filmler;
+            return View(filmler);
         }
 
     }

@@ -22,5 +22,8 @@ namespace WebProjesi.Models
         [Required(ErrorMessage ="Boş Olamaz!")]
         [MaxLength(400,ErrorMessage ="Film Açıklaması 200 Karakterden Uzun Olamaz.")]
         public string filmAciklamasi { get; set; }
+
+        [Required(ErrorMessage = "Boş Olamaz!")]
+        public string filmResimURL { get; set; }
     }
 }

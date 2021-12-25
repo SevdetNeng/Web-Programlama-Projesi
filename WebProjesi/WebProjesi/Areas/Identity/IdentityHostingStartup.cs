@@ -26,6 +26,7 @@ namespace WebProjesi.Areas.Identity
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                     options.Password.RequireLowercase = false;
+                    options.Password.RequiredLength = 3;
                     }
                 ).AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<WebProjesiContext>();

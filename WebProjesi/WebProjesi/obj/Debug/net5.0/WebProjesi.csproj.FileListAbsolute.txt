@@ -176,3 +176,7 @@ C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Katalogum.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\KatalogSil.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\YorumSil.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\filmAksiyon.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\filmMacera.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\filmBKurgu.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\filmRomantik.cshtml.g.cs
