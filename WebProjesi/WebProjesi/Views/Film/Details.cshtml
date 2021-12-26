@@ -5,6 +5,10 @@
 @{
 }
 
+@{
+    ViewData["Title"] =Model.film.filmIsmi;
+    
+}
 
 <br />
 
@@ -23,7 +27,7 @@
 
 
         <div class="col card text-white">
-            <div class="card-body">
+            <div class="card-body overflow-auto">
                 <div class="row no-gutters">
                     <div class="col-sm-4">
                         <img src="@Model.film.filmResimURL" class="card-img kartresim" alt="...">
@@ -145,15 +149,16 @@
 
     </table>
 
-    <div class="offset-4">
+    <div class="align-self-center">
 
         <input type="submit" class="btn btn-success  w-25" value="Yolla" />
-        <a asp-action="Index" class="btn btn-danger  w-25">Geri Git</a>
+        
 
     </div>
 
 </form>
 }
+
 
 
 

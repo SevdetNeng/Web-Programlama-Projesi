@@ -145,7 +145,6 @@ C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Delete.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Update.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Details.cshtml.g.cs
-C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Kayit\SignUp.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
@@ -171,7 +170,6 @@ C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Areas\
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\kullaniciFilmler.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Giris.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
-C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\FilmYorum.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\KatalogEkle.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\Katalogum.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\KatalogSil.cshtml.g.cs
@@ -180,3 +178,8 @@ C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\filmMacera.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\filmBKurgu.cshtml.g.cs
 C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\filmRomantik.cshtml.g.cs
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\WebProjesi.csproj.GenerateResource.cache
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\bin\Debug\net5.0\en\WebProjesi.resources.dll
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\WebProjesi.Resources.Views.Film.Index.en.resources
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\en\WebProjesi.resources.dll
+C:\Users\sevdet\source\repos\WebProjesi\WebProjesi\obj\Debug\net5.0\Razor\Views\Film\İletisim.cshtml.g.cs

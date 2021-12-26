@@ -96,7 +96,7 @@ namespace WebProjesi.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     
-                    if(Input.Email == "sevdet.isik@sakarya.edu.tr")
+                    if(Input.Email == "g191210082@sakarya.edu.tr")
                     {
                         if (!await _roleManager.RoleExistsAsync("Admin"))
                         {
@@ -104,7 +104,7 @@ namespace WebProjesi.Areas.Identity.Pages.Account
                             var res = await _roleManager.CreateAsync(admin);
                             if (res.Succeeded)
                             {
-                                if (Input.Email == "sevdet.isik@sakarya.edu.tr")
+                                if (Input.Email == "g191210082@sakarya.edu.tr")
                                 {
                                     await _userManager.AddToRoleAsync(user, "Admin");
                                 }
@@ -113,7 +113,7 @@ namespace WebProjesi.Areas.Identity.Pages.Account
                         }
                         else if (await _roleManager.RoleExistsAsync("Admin"))
                         {
-                            if (Input.Email == "sevdet.isik@sakarya.edu.tr")
+                            if (Input.Email == "g191210082@sakarya.edu.tr")
                             {
                                 await _userManager.AddToRoleAsync(user, "Admin");
                             }

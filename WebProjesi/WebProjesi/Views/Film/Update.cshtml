@@ -1,25 +1,47 @@
-﻿@model WebProjesi.Models.Film
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@model WebProjesi.Models.Film
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+}
+
+@{
+    ViewData["Title"] = "Filmi Güncelle";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
 }
 <form method="post" asp-action="Update">
 
     <h1 class="text-light text-center bg-dark">Filmi Düzenle</h1>
     <input asp-for="Id" hidden />
 
+    <h3 class="text-center">Film Kategorisi</h3>
+    <select class=" bg-light border-dark text-dark form-control" asp-for="filmTuru" id="isim">
+        <option value="Aksiyon">
+            Aksiyon
+        </option>
+        <option value="Bilim Kurgu">
+            Bilim Kurgu
+        </option>
+        <option value="Macera">
+            Macera
+        </option>
+        <option value="Romantik">
+            Romantik
+        </option>
+    </select>
+
     <table class="table table-bordered table-striped" style="width:100%">
         <thead>
             <tr>
                 <th class="text-center bg-light">
-                    Film Adı
+                    Film İsmi
                 </th>
                 <th class="text-center bg-light">
-                    Film Kategorisi
+                    Film Açıklaması
                 </th>
                 <th class="text-center bg-light">
-                    Film Aciklamasi
+                    Resim URL
                 </th>
             </tr>
         </thead>
@@ -30,12 +52,12 @@
                     <span asp-validation-for="filmIsmi" class="text-danger"></span>
                 </td>
                 <td>
-                    <input asp-for="filmTuru" width="100" type="text" id="isim" class="form-control" />
-                    <span asp-validation-for="filmTuru" class="text-danger"></span>
-                </td>
-                <td>
                     <input asp-for="filmAciklamasi" width="100" type="text" id="isim" class="form-control" />
                     <span asp-validation-for="filmAciklamasi" class="text-danger"></span>
+                </td>
+                <td>
+                    <input asp-for="filmResimURL" width="100" type="text" id="isim" class="form-control" />
+                    <span asp-validation-for="filmResimURL" class="text-danger"></span>
                 </td>
             </tr>
         </tbody>

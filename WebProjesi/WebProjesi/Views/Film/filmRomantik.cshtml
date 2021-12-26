@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<WebProjesi.Models.Film>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Film Listesi";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
 
@@ -15,7 +15,7 @@
     </div>
     <div class="row pt-4">
         <div class="col-3 align-self-end">
-            <a asp-controller="Film" asp-action="kullaniciFilmler" class="btn btn-dark ">Aksiyon</a>
+            <a asp-controller="Film" asp-action="filmAksiyon" class="btn btn-dark ">Aksiyon</a>
         </div>
         <div class="col-3">
             <a asp-controller="Film" asp-action="filmMacera" class="btn btn-dark ">Macera</a>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
 using WebProjesi.Data;
 using WebProjesi.Models;
 
@@ -14,17 +15,19 @@ namespace WebProjesi.Controllers
     {
 
         private readonly ApplicationDBContext _db;
-
+       
         
         public FilmController(ApplicationDBContext db)
         {
             _db = db;
+            
         }
         
         [Authorize(Roles ="Admin")]
         public IActionResult Index()
         {
-
+            
+            
             IEnumerable<Film> objList = _db.Filmler;
 			return View(objList);
             
@@ -37,6 +40,10 @@ namespace WebProjesi.Controllers
             return View(objList);
         }
 
+        public IActionResult İletisim()
+        {
+            return View();
+        }
         public IActionResult FilmYorum()
         {
             
@@ -214,6 +221,7 @@ namespace WebProjesi.Controllers
             {
                 return NotFound();
             }
+
             var katalog = new Kataloglar();
             katalog.filmNumara = id;
             katalog.kullaniciAdi = User.Identity.Name;

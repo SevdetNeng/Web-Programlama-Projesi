@@ -5,6 +5,11 @@
 @{
 }
 
+@{
+    ViewData["Title"] = "Katalogdan Sil";
+    
+}
+
 <div class="col-3  ">
 
     <h4 class="bg-dark text-center pb-2 rounded pl-2 pr-2 pt-2 text-white">Film Detayları</h4>
@@ -27,7 +32,7 @@
                 <div class="card-body">
                     <div class="row no-gutters">
                         <div class="col-sm-4">
-                            <img src="https://www.arthipo.com/image/cache/catalog/poster/movie/1-758/pfilm117-the-amazing-spider-man-orumcek-adam-posteri-500x500w.jpg" class="card-img kartresim" alt="...">
+                            <img src="@Model.filmResimURL" class="card-img kartresim" alt="...">
                         </div>
                         <div class="col">
                             <div class="card-body">

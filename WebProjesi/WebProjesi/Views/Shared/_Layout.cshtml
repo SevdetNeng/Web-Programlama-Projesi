@@ -20,7 +20,7 @@
 
     <nav class="navbar topbar navbar-expand-sm navbar-toggleable-sm   border-bottom box-shadow ">
         <div class="container">
-            <a  class="navbar-brand sari  logo" id="logo" asp-area="" asp-controller="Film" asp-action="Index">Good2Watch</a>
+            <a  class="navbar-brand sari  logo" id="logo" asp-area="" asp-controller="Film" asp-action="Giris">Good2Watch</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -54,9 +54,9 @@
 
         <a asp-action="kullaniciFilmler" asp-controller="Film">Filmler</a>
         <br />
-        <a href="#">Kitaplar</a>
-        <br />
-        <a href="#">İletişim</a>
+        
+       
+        <a asp-action="İletisim" asp-controller="film">İletişim</a>
         <br />
         @if (User.IsInRole("Admin"))
         {
@@ -82,7 +82,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - WebProjesi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 Güz Dönemi - Web Programlama Projesi G191210082 - <a asp-area="" asp-controller="Film" asp-action="İletisim">İletişim</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
